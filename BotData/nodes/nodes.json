@@ -1,0 +1,885 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 148,
+      "y": 188
+    },
+    {
+      "type": "command",
+      "name": "info",
+      "guid": "2224944a-561a-4fa1-824b-2f31ea37c836",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "e8ad3a64-8748-4694-be38-05d6c209b1b0"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 149,
+      "y": 325
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "!help",
+          "value": "Shows this menu",
+          "inline": "true"
+        },
+        {
+          "name": "!info",
+          "value": "Shows some info",
+          "inline": "true"
+        },
+        {
+          "name": "!ticket-menu",
+          "value": "create a ticket-panal",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        }
+      ],
+      "x": 345,
+      "y": 182,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "1FFF57",
+        "Help Menu",
+        "",
+        "Bot Name Here",
+        "",
+        "",
+        "This is the embed description, replace this with some info about your bot!",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "!Menu",
+      "guid": "f95951af-eefa-46cf-90a2-62d10d14c4f9",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "80475faa-657e-487b-aa23-47d2929df7f3"
+        }
+      ],
+      "x": 254,
+      "y": 509,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "00FF5E",
+        "Bot Setup Menu",
+        "",
+        "${dbsVars.CommandAuthor.id}",
+        "${dbsVars.CommandAuthor.user.avatarURL}",
+        "",
+        "To setup the Bot Pleason select the language etc. with the buttons below.\n\n( NOTE: THIS IS IN BETA VERSION AND THIS PANEL DOWSNT WORK )",
+        "",
+        "",
+        "Gamechaos",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "German",
+              "customid": "Language_German",
+              "style": "SUCCESS",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            },
+            {
+              "label": "English",
+              "customid": "Language_English",
+              "style": "SUCCESS",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            },
+            {
+              "label": "",
+              "customid": "",
+              "style": "SUCCESS",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            }
+          ]
+        },
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "Auto-Moderation ( Toggel )",
+              "customid": "Auto_Moderation",
+              "style": "DANGER",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            },
+            {
+              "label": "Anti_Spam",
+              "customid": "Anti_Spam",
+              "style": "DANGER",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            },
+            {
+              "label": "Anti_Mentions ( Beta )",
+              "customid": "Anti_Mention",
+              "style": "DANGER",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            },
+            {
+              "label": "",
+              "customid": "",
+              "style": "PRIMARY",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            }
+          ]
+        },
+        {
+          "rowtype": "button",
+          "buttons": [
+            {
+              "label": "Youtube-Alerts",
+              "customid": "Youtube_Alerts",
+              "style": "PRIMARY",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            },
+            {
+              "label": "Twitch-Alerts",
+              "customid": "Twitch_Alerts",
+              "style": "PRIMARY",
+              "emoji": "",
+              "URL": "",
+              "ephemeral": false
+            }
+          ]
+        },
+        {
+          "rowtype": "button"
+        },
+        {
+          "rowtype": "button"
+        }
+      ],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "ticket-menu",
+      "guid": "4d1bfdb6-6a8e-4dde-9577-e08993503069",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "c3da226c-2672-4c0a-9114-b50c79829b62"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 134,
+      "y": 672
+    },
+    {
+      "type": "response",
+      "name": "creating ticket-menu",
+      "guid": "c3da226c-2672-4c0a-9114-b50c79829b62",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "ticket",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "8d758833-c2c2-4e8c-85f2-669dca3f3690"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "4d1bfdb6-6a8e-4dde-9577-e08993503069"
+        }
+      ],
+      "x": 314,
+      "y": 677,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "00FFC3",
+        "Ticket Creator",
+        "",
+        "${dbsVars.CommandAuthor.displayName}",
+        "${dbsVars.CommandAuthor.user.avatarURL}",
+        "",
+        "Reagiere auf diese Nachricht um ein Ticket zu erstellen, im ticket kannst du dann deine frage stellen.",
+        "",
+        "",
+        "Gamechaos <3",
+        "BOOL_TRUE@@",
+        "ticket",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "add reaktion",
+      "guid": "8d758833-c2c2-4e8c-85f2-669dca3f3690",
+      "reactionFields": [
+        "📩"
+      ],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "📩",
+          "connections": [
+            "19671568-a411-40b0-ad75-5176cfdea9ae"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c3da226c-2672-4c0a-9114-b50c79829b62"
+        }
+      ],
+      "x": 502,
+      "y": 684,
+      "rtype": "Reaction",
+      "rsubtype": "Add Reaction Listener",
+      "formdata": [
+        "${tempVars.ticket.id}",
+        "0",
+        "📩",
+        "ticketcreate",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "message",
+        "duration",
+        "reactionemoji",
+        "reactionuser",
+        "react"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "create ticket",
+      "guid": "19671568-a411-40b0-ad75-5176cfdea9ae",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "ticket",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "bb431439-31be-4276-a824-25c3cc714331"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8d758833-c2c2-4e8c-85f2-669dca3f3690"
+        }
+      ],
+      "x": 677,
+      "y": 685,
+      "rtype": "Channel Action",
+      "rsubtype": "Create Channel",
+      "formdata": [
+        "ticket-${tempVars.ticketcreate.displayName}",
+        "support",
+        "ticket",
+        "Text",
+        "ticket",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "chancategory",
+        "reason",
+        "channeltype",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "make channel privat",
+      "guid": "bb431439-31be-4276-a824-25c3cc714331",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "fbda327c-033c-4ed9-9e98-8f2fc58adcc7"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "19671568-a411-40b0-ad75-5176cfdea9ae"
+        }
+      ],
+      "x": 854,
+      "y": 687,
+      "rtype": "Channel Action",
+      "rsubtype": "Update Channel Permissions",
+      "formdata": [
+        "${tempVars.ticket.id}",
+        "${dbsVars.guild.id}",
+        [
+          "VIEW_CHANNEL",
+          "SEND_MESSAGES"
+        ],
+        "Deny"
+      ],
+      "formnames": [
+        "channelName",
+        "permid",
+        "permissions",
+        "allow"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "add person",
+      "guid": "fbda327c-033c-4ed9-9e98-8f2fc58adcc7",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "7f977b16-cdb1-4969-97fc-26df5990221e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "bb431439-31be-4276-a824-25c3cc714331"
+        }
+      ],
+      "x": 1031,
+      "y": 691,
+      "rtype": "Channel Action",
+      "rsubtype": "Update Channel Permissions",
+      "formdata": [
+        "${tempVars.ticket.id}",
+        "${tempVars.ticket.id}",
+        [
+          "VIEW_CHANNEL",
+          "SEND_MESSAGES"
+        ],
+        "Allow"
+      ],
+      "formnames": [
+        "channelName",
+        "permid",
+        "permissions",
+        "allow"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "send opening message",
+      "guid": "7f977b16-cdb1-4969-97fc-26df5990221e",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "fbda327c-033c-4ed9-9e98-8f2fc58adcc7"
+        }
+      ],
+      "x": 1202,
+      "y": 688,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${tempVars.ticket.id}",
+        "FF0000",
+        "Ticket",
+        "",
+        "${tempVars.ticketcreate.displayName}",
+        "",
+        "",
+        "Danke das du ein Ticket gemacht ein Teammitglied wird sich so schnell wie möglich um dich kümmern. Am besten beschreibst du schonmal dein Problem um den Prozess zu verschnellern",
+        "",
+        "",
+        "Gamechaos <3",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "menu",
+      "guid": "80475faa-657e-487b-aa23-47d2929df7f3",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "f95951af-eefa-46cf-90a2-62d10d14c4f9"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 66,
+      "y": 497
+    },
+    {
+      "type": "command",
+      "name": "deletechannel",
+      "guid": "e5dd53fa-bb57-4cc9-8aaa-e854a5e066d8",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "83563047-774d-4ec0-9fef-97cb2ec4e0fd"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 1417,
+      "y": 713
+    },
+    {
+      "type": "response",
+      "name": "deleting channel",
+      "guid": "83563047-774d-4ec0-9fef-97cb2ec4e0fd",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "e5dd53fa-bb57-4cc9-8aaa-e854a5e066d8"
+        }
+      ],
+      "x": 1595,
+      "y": 717,
+      "rtype": "Channel Action",
+      "rsubtype": "Delete Channel",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "User ${dbsVars.CommandAuthor.displayName} triggered the !deletechannel command"
+      ],
+      "formnames": [
+        "channelname",
+        "reason"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "sending info response",
+      "guid": "e8ad3a64-8748-4694-be38-05d6c209b1b0",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "Bot Version",
+          "value": "1.0.1",
+          "inline": "true"
+        },
+        {
+          "name": "Update Log:",
+          "value": "",
+          "inline": "false"
+        },
+        {
+          "name": "-Added Ticket System",
+          "value": "Ticket help Command !ticket-help",
+          "inline": "true"
+        },
+        {
+          "name": "-Added Level System",
+          "value": "!level see your curend level | !level-score see Level Scoreboard",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2224944a-561a-4fa1-824b-2f31ea37c836"
+        }
+      ],
+      "x": 335,
+      "y": 315,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "55FF00",
+        "Bot Info",
+        "",
+        "${dbsVars.CommandAuthor.displayName}",
+        "${dbsVars.CommandAuthor.user.avatarURL}",
+        "",
+        "This Bot was created by Gamechaos for the Neytiri Discord Server.\n",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "command",
+      "name": "level",
+      "guid": "831ad518-9ab3-4c74-bb0c-43c60f98abca",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "c53210ab-4fbd-447a-99c8-473ae2befaf0"
+          ]
+        }
+      ],
+      "inputs": [],
+      "x": 130,
+      "y": 928
+    },
+    {
+      "type": "response",
+      "name": "get level",
+      "guid": "c53210ab-4fbd-447a-99c8-473ae2befaf0",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "level",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "16bac68d-2d87-4ce1-b300-b6a1eae4ec35"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "831ad518-9ab3-4c74-bb0c-43c60f98abca"
+        }
+      ],
+      "x": 309,
+      "y": 939,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "lvl",
+        "level",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "get xp",
+      "guid": "16bac68d-2d87-4ce1-b300-b6a1eae4ec35",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "XP",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "24337d75-2824-44b1-94d4-66102120423e"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c53210ab-4fbd-447a-99c8-473ae2befaf0"
+        }
+      ],
+      "x": 486,
+      "y": 938,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "xp",
+        "XP",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    },
+    {
+      "type": "response",
+      "name": "send level card",
+      "guid": "24337d75-2824-44b1-94d4-66102120423e",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "XP",
+          "value": "${tempVars.XP} / 1500",
+          "inline": "true"
+        },
+        {
+          "name": "Level",
+          "value": "${tempVars.level}",
+          "inline": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "16bac68d-2d87-4ce1-b300-b6a1eae4ec35"
+        }
+      ],
+      "x": 660,
+      "y": 937,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "FFA200",
+        "Level Card",
+        "",
+        "${dbsVars.CommandAuthor.displayName}",
+        "${dbsVars.CommandAuthor.user.avatarURL}",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ],
+      "messageActionRows": [],
+      "valueFields": []
+    }
+  ]
+}

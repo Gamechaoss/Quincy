@@ -1,0 +1,382 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu",
+              "inline": "true"
+            },
+            {
+              "name": "!info",
+              "value": "Shows some info",
+              "inline": "true"
+            },
+            {
+              "name": "!ticket-menu",
+              "value": "create a ticket-panal",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "1FFF57",
+          "title": "Help Menu",
+          "url": "",
+          "authorname": "Bot Name Here",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "This is the embed description, replace this with some info about your bot!",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "sending info response",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "Bot Version",
+              "value": "1.0.1",
+              "inline": "true"
+            },
+            {
+              "name": "Update Log:",
+              "value": "",
+              "inline": "false"
+            },
+            {
+              "name": "-Added Ticket System",
+              "value": "Ticket help Command !ticket-help",
+              "inline": "true"
+            },
+            {
+              "name": "-Added Level System",
+              "value": "!level see your curend level | !level-score see Level Scoreboard",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "55FF00",
+          "title": "Bot Info",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.displayName}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "This Bot was created by Gamechaos for the Neytiri Discord Server.\n",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "ticket-menu",
+      "actions": [
+        {
+          "name": "creating ticket-menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "00FFC3",
+          "title": "Ticket Creator",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.displayName}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "Reagiere auf diese Nachricht um ein Ticket zu erstellen, im ticket kannst du dann deine frage stellen.",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Gamechaos <3",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "ticket",
+          "savetovariabletype": "temp"
+        },
+        {
+          "name": "add reaktion",
+          "category": "Reaction",
+          "type": "Add Reaction Listener",
+          "reactionActions": {
+            "📩": [
+              {
+                "name": "create ticket",
+                "category": "Channel Action",
+                "type": "Create Channel",
+                "messageActionRows": [],
+                "channelname": "ticket-${tempVars.ticketcreate.displayName}",
+                "chancategory": "support",
+                "reason": "ticket",
+                "channeltype": "Text",
+                "savetovariable": "ticket",
+                "savetovariabletype": "temp"
+              },
+              {
+                "name": "make channel privat",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${tempVars.ticket.id}",
+                "permid": "${dbsVars.guild.id}",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Deny"
+              },
+              {
+                "name": "add person",
+                "category": "Channel Action",
+                "type": "Update Channel Permissions",
+                "messageActionRows": [],
+                "channelname": "${tempVars.ticket.id}",
+                "permid": "${tempVars.ticket.id}",
+                "permissions": [
+                  "VIEW_CHANNEL",
+                  "SEND_MESSAGES"
+                ],
+                "allow": "Allow"
+              },
+              {
+                "name": "send opening message",
+                "category": "Message",
+                "type": "Send Embed",
+                "messageActionRows": [],
+                "channelname": "${tempVars.ticket.id}",
+                "color": "FF0000",
+                "title": "Ticket",
+                "url": "",
+                "authorname": "${tempVars.ticketcreate.displayName}",
+                "authorimageurl": "",
+                "authorlink": "",
+                "description": "Danke das du ein Ticket gemacht ein Teammitglied wird sich so schnell wie möglich um dich kümmern. Am besten beschreibst du schonmal dein Problem um den Prozess zu verschnellern",
+                "thumbnail": "",
+                "image": "",
+                "footer": "Gamechaos <3",
+                "timestamp": "BOOL_TRUE@@",
+                "savetovariable": "",
+                "savetovariabletype": "temp"
+              }
+            ]
+          },
+          "messageActionRows": [],
+          "message": "${tempVars.ticket.id}",
+          "duration": "0",
+          "reactionemoji": "📩",
+          "reactionuser": "ticketcreate",
+          "react": "BOOL_TRUE@@"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "actions": [
+        {
+          "name": "!Menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "messageActionRows": [
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "German",
+                  "customid": "Language_German",
+                  "style": "SUCCESS",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                },
+                {
+                  "label": "English",
+                  "customid": "Language_English",
+                  "style": "SUCCESS",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                },
+                {
+                  "label": "",
+                  "customid": "",
+                  "style": "SUCCESS",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                }
+              ]
+            },
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Auto-Moderation ( Toggel )",
+                  "customid": "Auto_Moderation",
+                  "style": "DANGER",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                },
+                {
+                  "label": "Anti_Spam",
+                  "customid": "Anti_Spam",
+                  "style": "DANGER",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                },
+                {
+                  "label": "Anti_Mentions ( Beta )",
+                  "customid": "Anti_Mention",
+                  "style": "DANGER",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                },
+                {
+                  "label": "",
+                  "customid": "",
+                  "style": "PRIMARY",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                }
+              ]
+            },
+            {
+              "rowtype": "button",
+              "buttons": [
+                {
+                  "label": "Youtube-Alerts",
+                  "customid": "Youtube_Alerts",
+                  "style": "PRIMARY",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                },
+                {
+                  "label": "Twitch-Alerts",
+                  "customid": "Twitch_Alerts",
+                  "style": "PRIMARY",
+                  "emoji": "",
+                  "URL": "",
+                  "ephemeral": false
+                }
+              ]
+            },
+            {
+              "rowtype": "button"
+            },
+            {
+              "rowtype": "button"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "00FF5E",
+          "title": "Bot Setup Menu",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.id}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "To setup the Bot Pleason select the language etc. with the buttons below.\n\n( NOTE: THIS IS IN BETA VERSION AND THIS PANEL DOWSNT WORK )",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Gamechaos",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "deletechannel",
+      "actions": [
+        {
+          "name": "deleting channel",
+          "category": "Channel Action",
+          "type": "Delete Channel",
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "reason": "User ${dbsVars.CommandAuthor.displayName} triggered the !deletechannel command"
+        }
+      ]
+    },
+    {
+      "name": "level",
+      "actions": [
+        {
+          "name": "get level",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "lvl",
+          "varname": "level",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "get xp",
+          "category": "User Data",
+          "type": "Get User Data",
+          "messageActionRows": [],
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "xp",
+          "varname": "XP",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "send level card",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "XP",
+              "value": "${tempVars.XP} / 1500",
+              "inline": "true"
+            },
+            {
+              "name": "Level",
+              "value": "${tempVars.level}",
+              "inline": "true"
+            }
+          ],
+          "messageActionRows": [],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "FFA200",
+          "title": "Level Card",
+          "url": "",
+          "authorname": "${dbsVars.CommandAuthor.displayName}",
+          "authorimageurl": "${dbsVars.CommandAuthor.user.avatarURL}",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}

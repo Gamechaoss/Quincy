@@ -1,0 +1,20 @@
+{
+  "enabled": false,
+  "obj": {
+    "warnEnabled": false,
+    "kickEnabled": false,
+    "banEnabled": false,
+    "maxInterval": 2000,
+    "maxDuplicatesInterval": 60000,
+    "warnMessage": "warning",
+    "kickMessage": "kicking",
+    "banMessage": "banning",
+    "warnThreshold": 3,
+    "kickThreshold": 5,
+    "banThreshold": 7,
+    "maxDuplicatesWarning": 4,
+    "maxDuplicatesKick": 7,
+    "maxDuplicatesBan": 12,
+    "debug": true
+  }
+}
